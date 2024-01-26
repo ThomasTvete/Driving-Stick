@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 10px solid black;
+            padding: 30px;
+            border-radius: 50%;
+            width: 300px;
+            background-color: black;
+            font-size: 300%;
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-columns: repeat(6, 50px);
+            grid-template-rows: repeat(6, 50px);
+            grid-template-areas:
+                "area1 area1 area3 area3 area5 area5"
+                "area1 area1 area3 area3 area5 area5"
+                "empty1 empty2 empty3 empty4 empty5 empty6"
+                "empty7 empty8 empty9 empty10 empty11 empty12"
+                "area2 area2 area4 area4 areaR areaR"
+                "area2 area2 area4 area4 areaR areaR"
+            ;
+        }
+
+        button {
+            font-size: 100%;
+            background-color: #555555;
+            color: white;
+        }
+
+        .container>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .selected {
+            color: yellow;
+        }
+
+        .left {
+            border-left: 1px solid white;
+        }
+
+        .right {
+            border-right: 1px solid white;
+        }
+
+        .top {
+            border-top: 1px solid white;
+        }
+
+        .bottom {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+
+<body onload="showNeutral()">
+    <div class="container" id="gear">
+    </div>
+
+    <script>
+
+        function showNeutral() {
+            document.getElementById('gear').innerHTML = '';
+            showBtn1AsButton();
+            nonButton2();
+            nonButton3();
+            nonButton4();
+            nonButton5();
+            showBtnRAsButton();
+            showLines();
+        }
+        function show1() {
+            document.getElementById('gear').innerHTML = '';
+            showPress1();
+            showBtn2AsButton();
+            nonButton3();
+            nonButton4();
+            nonButton5();
+            nonButtonR();
+            showLines();
+        }
+        function show2() {
+            document.getElementById('gear').innerHTML = '';
+            showBtn1AsButton();
+            showPress2();
+            showBtn3AsButton();
+            nonButton4();
+            nonButton5();
+            nonButtonR();
+            showLines();
+        }
+        function show3() {
+            document.getElementById('gear').innerHTML = '';
+            nonButton1();
+            showBtn2AsButton();
+            showPress3();
+            showBtn4AsButton();
+            nonButton5();
+            nonButtonR();
+            showLines();
+        }
+        function show4() {
+            document.getElementById('gear').innerHTML = '';
+            nonButton1();
+            nonButton2();
+            showBtn3AsButton();
+            showPress4();
+            showBtn5AsButton();
+            nonButtonR();
+            showLines();
+        }
+        function show5() {
+            document.getElementById('gear').innerHTML = '';
+            nonButton1();
+            nonButton2();
+            nonButton3();
+            showBtn4AsButton();
+            showPress5();
+            nonButtonR();
+            showLines();
+        }
+        function showR() {
+            document.getElementById('gear').innerHTML = ''
+            showBtn1AsButton();
+            nonButton2();
+            nonButton3();
+            nonButton4();
+            nonButton5();
+            showPressR();
+            showLines();
+        }
+
+
+
+        function nonButton1() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area1;">1</div>
+            `;
+        }
+        function nonButton2() {
+            document.getElementById('gear').innerHTML += /*HTML*/`
+            <div style="grid-area: area2;">2</div>
+            `;
+        }
+        function nonButton3() {
+            document.getElementById('gear').innerHTML += /*HTML*/`
+            <div style="grid-area: area3;">3</div>
+            `;
+        }
+        function nonButton4() {
+            document.getElementById('gear').innerHTML += /*HTML*/`
+            <div style="grid-area: area4;">4</div>
+            `;
+        }
+        function nonButton5() {
+            document.getElementById('gear').innerHTML += /*HTML*/`
+            <div style="grid-area: area5;">5</div>
+            `;
+        }
+        function nonButtonR() {
+            document.getElementById('gear').innerHTML += /*HTML*/`
+            <div style="grid-area: areaR;">R</div>
+            `;
+        }
+
+        function showPress1() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area1;"><i>1</i></div>
+            `;
+        }
+        function showPress2() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area2;"><i>2</i></div>
+            `;
+        }
+        function showPress3() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area3;"><i>3</i></div>
+            `;
+        }
+        function showPress4() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area4;"><i>4</i></div>
+            `;
+        }
+        function showPress5() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area5;"><i>5</i></div>
+            `;
+        }
+        function showPressR() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: areaR;"><i>R</i></div>
+            `;
+        }
+
+        function showBtn1AsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area1;"><button onclick="show1()">1</button></div>
+            `;
+        }
+        function showBtn2AsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area2;"><button onclick="show2()">2</button></div>
+            `;
+        }
+        function showBtn3AsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area3;"><button onclick="show3()">3</button></div>
+            `;
+        }
+        function showBtn4AsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area4;"><button onclick="show4()">4</button></div>
+            `;
+        }
+        function showBtn5AsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: area5;"><button onclick="show5()">5</button></div>
+            `;
+        }
+        function showBtnRAsButton() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: areaR;"><button onclick="showR()">R</button></div>
+            `;
+        }
+
+        function showLines() {
+            document.getElementById('gear').innerHTML += /*HTML*/`            
+                <div style="grid-area: empty1;" class="right"></div>
+                <div style="grid-area: empty2;" class="bottom"></div>
+                <div style="grid-area: empty3;" class="bottom right" onclick=showNeutral()></div>
+                <div style="grid-area: empty4;" class="bottom" onclick=showNeutral()></div>
+                <div style="grid-area: empty5;" class="bottom right"></div>
+                <div style="grid-area: empty6;"></div>
+                <div style="grid-area: empty7;" class="right"></div>
+                <div style="grid-area: empty8;"></div>
+                <div style="grid-area: empty9;" class="right" onclick=showNeutral()></div>
+                <div style="grid-area: empty10;" onclick=showNeutral()></div>
+                <div style="grid-area: empty11;" class="right"></div>
+                <div style="grid-area: empty12;"></div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
